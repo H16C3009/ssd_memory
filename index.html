@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/vendors/bootstrap-reboot.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script type="text/javascript" src="scripts/vendors/smoothscroll.js"></script>
+</head>
+<body>
+    <div id="global-container">
+        <div id="container">
+            <div class="mobile-menu__cover"></div>
+            <header class="header">
+                <div class="header__inner">
+                    <button class="mobile-menu__btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </header>
+            <div id="content">
+                <div id="main-content">
+                    <main>
+                        <section class="info">
+                            <div class="info__inner">
+                                <div class="info__header">
+                                    <div class="info__author">
+                                        <img src="./images/sample111.jpg" alt="" class="authorImage">
+                                        <a href="#" class="authorName">ito yoshiaki</a>
+                                    </div>
+                                    <div class="info__time">
+                                        <span>2020年7月2日に作成</span>
+                                    </div>
+                                </div>               
+                                <div class="info__title">
+                                    <h2>Think Pad E495のメモリ装着とSSD換装について</h2>
+                                </div>
+                                <div class="info__tag">
+                                    <a href="#" class="tagItem">thinkpad</a>
+                                    <a href="#" class="tagItem">ssd</a>
+                                    <a href="#" class="tagItem">windows</a>
+                                    <a href="#" class="tagItem">memory</a>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="mokuji">
+                            <div class="mokuji__inner">
+                                <div class="mokuji__category">目次</div>
+                                <nav class="mokuji_nav">
+                                    <ol class="mokuji__ol">
+                                        <li class="mokuji__li item"><a href="#abstract">概要</a></li>
+                                        <li class="mokuji__li item"><a href="#prepare">用意するもの</a>
+                                        </li>
+                                        <li class="mokuji__li item"><a href="#try">やってみる</a>
+                                            <ol class="mokuji__ol__sub">
+                                                <li class="mokuji__li__sub item"><a href="#try1">SSDのフォーマット化</a></li>
+                                                <li class="mokuji__li__sub item"><a href="#try2">SSDにOSをクローン</a></li>
+                                                <li class="mokuji__li__sub item"><a href="#try3">メモリ装着とSSD換装</a></li>
+                                                <li class="mokuji__li__sub item"><a href="#try4">パーティション結合</a></li>
+                                            </ol>
+                                        </li>
+                                        <li class="mokuji__li item"><a href="#review">レビュー</a></li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </section>
+                        <section class="abstract" id="abstract">
+                            <div class="abstract__inner">
+                                <div class="abstract__category">
+                                    <div class="abstract__headline">概要</div>
+                                </div>
+                                <div class="abstract__texts">
+                                    <div class="abstract__text-inner">
+                                        <div class="abstract__title"></div>
+                                        <div class="abstract__sub"></div>
+                                        <div class="abstract__description">ネット上で、パソコンのメモリ増設とSSD換装が容易にできるとのことで、実際に試してみました。thinkpad E495 を購入しましたので、それを使ってメモリ増設とSSD換装を行っていきます。実際にやっていく中で、SSDの種類など注意する点などがあったので、それらも踏まえてどのようなプロセスでやったのか共有したいと思います。責任をとることはできませんが、参考になれば幸いです。</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="prepare" id="prepare">
+                            <div class="prepare__inner">
+                                <div class="prepare__category">
+                                    <div class="prepare__headline">用意するもの</div>
+                                </div>
+                                <div class="prepare__img">
+                                    <img src="images/sample11111.png" alt="">
+                                </div>
+                                <div class="prepare__texts">
+                                    <div class="prepare__text-inner">
+                                        <div class="prepare__title">
+                                            <span>SSDの種類</span>
+                                        </div>
+                                        <div class="prepare__sub">
+                                            <span>PCIe NVMe (M-Key and M+B Key）</span>   
+                                        </div>
+                                        <div class="prepare__description">
+                                            <p>レノボのthinkpad E495を購入した際に、ご注文情報がメールアドレスで送られてきます。そちらで構成内容を確認してください。
+                                                これをもとにSSDとメモリの種類を選んでいきます。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="prepare__inner">
+                                <div class="prepare__img">
+                                    <img src="images/sample36.png" alt="">
+                                </div>
+                                <div class="prepare__texts">
+                                    <div class="prepare__text-inner">
+                                        <div class="prepare__title">
+                                            <span>SSDの種類</span>
+                                        </div>
+                                        <div class="prepare__sub">
+                                            <span>PCIe NVMe (M-Key and M+B Key）</span>   
+                                        </div>
+                                        <div class="prepare__description">
+                                            <p>構成内容からSSDの種類は、M.2 2242, PCIe-NVMeであることが確認できました。
+                                                なので、今回は同じサイズ、同じ接続方式のこのSSDを購入したいと思います。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="prepare__inner">
+                                <div class="prepare__img">
+                                    <img src="images/sample37.png" alt="">
+                                </div>
+                                <div class="prepare__texts">
+                                    <div class="prepare__text-inner">
+                                        <div class="prepare__title">
+                                            <span>SSD外付けケース</span>
+                                        </div>
+                                        <div class="prepare__sub">
+                                            <span>PCIe NVMe (M-Key and M+B Key）対応</span>   
+                                        </div>
+                                        <div class="prepare__description">
+                                            <p>注意する点は、SSDとSSD外付けケースの接続方式が同じである点です。
+                                                SSDには、主にSATA接続とNVMe接続の２つの接続方式があります。
+                                                接続方式が異なるとPC本体がメディアを読み込みませんので、注意してください。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="prepare__inner">
+                                <div class="prepare__img">
+                                    <img src="images/sample38.png" alt="">
+                                </div>
+                                <div class="prepare__texts">
+                                    <div class="prepare__text-inner">
+                                        <div class="prepare__title">
+                                            <span>変換器</span>
+                                        </div>
+                                        <div class="prepare__sub">
+                                            <span>Type-A (オス) to Type-C (メス) 変換アダプタ</span>   
+                                        </div>
+                                        <div class="prepare__description">
+                                            <p>thinkpad E495がType-Cに対応していないので、外付けSSDのType-CをType-Aに変換します。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="prepare__inner">
+                                <div class="prepare__img">
+                                    <img src="images/sample39.png" alt="">
+                                </div>
+                                <div class="prepare__texts">
+                                    <div class="prepare__text-inner">
+                                        <div class="prepare__title">
+                                            <span>メモリ</span>
+                                        </div>
+                                        <div class="prepare__sub">
+                                            <span>DDR4 SoDIMM</span>   
+                                        </div>
+                                        <div class="prepare__description">
+                                            <p>構成内容からメモリの種類は、DDR4 SoDIMMであることが確認できました。 なので、今回は同じDDR4 SoDIMMのメモリを購入したいと思います。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="prepare__inner">
+                                <div class="prepare__img">
+                                    <img src="images/sa6.png" alt="">
+                                </div>
+                                <div class="prepare__texts">
+                                    <div class="prepare__text-inner">
+                                        <div class="prepare__title">
+                                            <span>スパッジャーとドライバ</span>
+                                        </div>
+                                        <div class="prepare__sub">
+                                            <span>thinkpad分解工具</span>   
+                                        </div>
+                                        <div class="prepare__description">
+                                            <p>thinkpadを分解する際に、スパッジャーとドライバーを使います。
+                                                この画像はスパッジャーだけなので、ドライバーを適宜用意してください。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="try1" id="try1">
+                            <div class="try1__inner">
+                                <div class="try1__category">
+                                    <div class="try1__headline">やってみる（SSDのフォーマット化）
+                                    </div>
+                                </div>
+                                <div class="try1__img">
+                                    <img src="images/sample.jpg" alt="">
+                                </div>
+                                <div class="try1__texts">
+                                    <div class="try1__text-inner">
+                                        <div class="try1__description">
+                                            <p>スタートボタンを右クリックし、ディスク管理（K）を選択します。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try1__inner">
+                                <div class="try1__img">
+                                    <img src="images/sample3.png" alt="">
+                                </div>
+                                <div class="try1__texts">
+                                    <div class="try1__text-inner">
+                                        <div class="try1__description">
+                                            <p>ディスク管理が開きます。 ※注意点</p>
+                                            <p>thinkpad E495に対応したSSDを購入する必要があります。SSDには、様々な規格があり、形状が同じに見えても通信の種類が異なることがあります。SSDが認識されないという問題が生じることがあります。そのため、SSDを購入する際は、購入時にPCに対応しているSSDの形状、規格、通信の種類などを確認する必要があります。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try1__inner">
+                                <div class="try1__img">
+                                    <img src="images/sample4.png" alt="">
+                                </div>
+                                <div class="try1__texts">
+                                    <div class="try1__text-inner">
+                                        <div class="try1__description">
+                                            <p>正常に外付けSSDが認識されれば、「ディスク１不明：未割り当て」と表示されているはずです。もしも購入したSSDが中古の場合は、すでに割り当てられている可能性があります。雑談ですが、５１２GBが４７６GBと認識されれています。通常SSDは、HDDメーカーでは1G = 1000M で計算し、OSでは1G=1024M で計算しているためです。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try1__inner">
+                                <div class="try1__img">
+                                    <img src="images/sample5.png" alt="">
+                                </div>
+                                <div class="try1__texts">
+                                    <div class="try1__text-inner">
+                                        <div class="try1__description">
+                                            <p>次にディスクをフォーマット化します。「ディスク１不明：未割り当て」と表示されているエリアを右クリックをします。フォーマット（F）を選択します。上記の画面が表示されるので、「次へ」をクリックします。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try1__inner">
+                                <div class="try1__img">
+                                    <img src="images/sample6.png" alt="">
+                                </div>
+                                <div class="try1__texts">
+                                    <div class="try1__text-inner">
+                                        <div class="try1__description">
+                                            <p>シンプルボリュームサイズが最大ディスク領域と同じになっていることを確認します。「次へ」をクリックします。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try1__inner">
+                                <div class="try1__img">
+                                    <img src="images/sample7.png" alt="">
+                                </div>
+                                <div class="try1__texts">
+                                    <div class="try1__text-inner">
+                                        <div class="try1__description">
+                                            <p>「次のドライブ文字を割り当てる」は、C以外の文字を割り当てることができます。Cは現在使用しているため、使用することができません。今回は、Dドライブになっています。「次へ」をクリックします。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try1__inner">
+                                <div class="try1__img">
+                                    <img src="images/sample8.png" alt="">
+                                </div>
+                                <div class="try1__texts">
+                                    <div class="try1__text-inner">
+                                        <div class="try1__description">
+                                            <p>「ファイルシステム」がNTFSになっていることを確認して、「次へ」をクリックします。「クイックフォーマットする」にチェックがついている場合、少し早くフォーマット化が完了します。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try1__inner">
+                                <div class="try1__img">
+                                    <img src="images/sample9.png" alt="">
+                                </div>
+                                <div class="try1__texts">
+                                    <div class="try1__text-inner">
+                                        <div class="try1__description">
+                                            <p>上記のようなフォーマットが完了した画面になります。「完了」をクリックします。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try1__inner">
+                                <div class="try1__img">
+                                    <img src="images/sample10.png" alt="">
+                                </div>
+                                <div class="try1__texts">
+                                    <div class="try1__text-inner">
+                                        <div class="try1__description">
+                                            <p>フォーマットが完了すると、上記のようにディスクにボリュームが割り当てられます。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try1__inner">
+                                <div class="try1__img">
+                                    <img src="images/sample11.png" alt="">
+                                </div>
+                                <div class="try1__texts">
+                                    <div class="try1__text-inner">
+                                        <div class="try1__description">
+                                            <p>「PC」で正常にボリューム（D:）が割り当てられていることが再確認できます。
+                                                ディスク管理で外付けSSDのフォーマット化が完了しました。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="try2" id="try2">
+                            <div class="try2__inner">
+                                <div class="try2__category">
+                                    <div class="try2__headline">やってみる（SSDにOSをクローン）
+                                    </div>
+                                </div>
+                                <div class="try2__img">
+                                    <img src="images/sample1.png" alt="">
+                                </div>
+                                <div class="try2__texts">
+                                    <div class="try2__text-inner">
+                                        <div class="try2__description">
+                                            <p>easeUS Todo Backupは、「EaseUS Todo Backupの公式サイト」か「窓の社」からダウンロードできます。無料枠で利用することができます。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try2__inner">
+                                <div class="try2__img">
+                                    <img src="images/sample12.png" alt="">
+                                </div>
+                                <div class="try2__texts">
+                                    <div class="try2__text-inner">
+                                        <div class="try2__description">
+                                            <p>easeUS Todo Backupをインストールしたら、アプリケーションを起動してください。起動すると上記のような、画面になります。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try2__inner">
+                                <div class="try2__img">
+                                    <img src="images/sample13.png" alt="">
+                                </div>
+                                <div class="try2__texts">
+                                    <div class="try2__text-inner">
+                                        <div class="try2__description">
+                                            <p>左上のメニュー一覧からクローンを選択します。クローンは、現在利用しているOSやデータなどすべてをそのままクローンします。システムクローンだとうまくいかない場合が多いみたいなので、クローンにすることが無難だと思います。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try2__inner">
+                                <div class="try2__img">
+                                    <img src="images/sample14.png" alt="">
+                                </div>
+                                <div class="try2__texts">
+                                    <div class="try2__text-inner">
+                                        <div class="try2__description">
+                                            <p>クローンするためのソースになるハードディスク先を選択します。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try2__inner">
+                                <div class="try2__img">
+                                    <img src="images/sample15.png" alt="">
+                                </div>
+                                <div class="try2__texts">
+                                    <div class="try2__text-inner">
+                                        <div class="try2__description">
+                                            <p>ソースとして、現在のHDDである「ハードディスク０」にチェックを入れます。
+                                                「次へ」をクリックします。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try2__inner">
+                                <div class="try2__img">
+                                    <img src="images/sample17.png" alt="">
+                                </div>
+                                <div class="try2__texts">
+                                    <div class="try2__text-inner">
+                                        <div class="try2__description">
+                                            <p>ターゲット先として、外付けSSDである「ハードディスク１」にチェックを入れます。「次へ」をクリックします。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try2__inner">
+                                <div class="try2__img">
+                                    <img src="images/sample18.png" alt="">
+                                </div>
+                                <div class="try2__texts">
+                                    <div class="try2__text-inner">
+                                        <div class="try2__description">
+                                            <p>高度なオプションが表示されるので、「SSDに最適化」にチェックが入っていることを確認して「OK」をクリックします。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try2__inner">
+                                <div class="try2__img">
+                                    <img src="images/sample19.png" alt="">
+                                </div>
+                                <div class="try2__texts">
+                                    <div class="try2__text-inner">
+                                        <div class="try2__description">
+                                            <p>「実行」をクリックします。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try2__inner">
+                                <div class="try2__img">
+                                    <img src="images/sample20.png" alt="">
+                                </div>
+                                <div class="try2__texts">
+                                    <div class="try2__text-inner">
+                                        <div class="try2__description">
+                                            <p>ターゲットディスクのデータが消去されます。現在のターゲットディスクは、新品を購入しているため、関係ありません。「はい」をクリックします。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try2__inner">
+                                <div class="try2__img">
+                                    <img src="images/sample21.png" alt="">
+                                </div>
+                                <div class="try2__texts">
+                                    <div class="try2__text-inner">
+                                        <div class="try2__description">
+                                            <p>クローンが開始されます。私のPCでは、６０GBのクローンを７分ほどで完了しました。
+                                                これでeaseUS Todo Backupで外付けSSDにOSをクローンするのが完了します。
+                                                </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="try3" id="try3">
+                            <div class="try3__inner">
+                                <div class="try3__category">
+                                    <div class="try3__headline">やってみる（メモリ装着とSSD換装）
+                                    </div>
+                                </div>
+                                <div class="try3__img">
+                                    <img src="images/sa1.jpg" alt="">
+                                </div>
+                                <div class="try3__texts">
+                                    <div class="try3__text-inner">
+                                        <div class="try3__description">
+                                            <p>必ずシャットダウンしてください。まずThinkpadを裏側にします。ドライバーで裏側のねじの箇所を緩めます。
+                                                スパッジャーを裏側の間にさして、てこの原理で蓋を開けます。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try3__inner">
+                                <div class="try3__img">
+                                    <img src="images/sa2.jpg" alt="">
+                                </div>
+                                <div class="try3__texts">
+                                    <div class="try3__text-inner">
+                                        <div class="try3__description">
+                                            <p>蓋を開けた状態です。SSDとメモリの位置を確認してください。
+                                                <br />※私が最初に画像を取り忘れてしまったので、この画像はすでにメモリ装着後の画像になります。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try3__inner">
+                                <div class="try3__img">
+                                    <img src="images/sample2222 (2).jpg" alt="">
+                                </div>
+                                <div class="try3__texts">
+                                    <div class="try3__text-inner">
+                                        <div class="try3__description">
+                                            <p>この画像は、まだメモリが装着されていない状態です。
+                                                このthinkpadのスロット数は２つになります。１つは購入時のデフォルトで４GBのメモリが刺さっています。
+                                                もう一方は、空の状態です。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try3__inner">
+                                <div class="try3__img">
+                                    <img src="images/sa4.jpg" alt="">
+                                </div>
+                                <div class="try3__texts">
+                                    <div class="try3__text-inner">
+                                        <div class="try3__description">
+                                            <p>
+                                                空のスロットにメモリを差し込みます。
+                                                奥に差し込み人差し指の腹で押し込めば、カッチと音が鳴ります。これで装着完了です。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try3__inner">
+                                <div class="try3__img">
+                                    <img src="images/sa3.jpg" alt="">
+                                </div>
+                                <div class="try3__texts">
+                                    <div class="try3__text-inner">
+                                        <div class="try3__description">
+                                            <p>次はSSD換装を行います。外付けSSDケースからクローン済みのSSDを外します。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try3__inner">
+                                <div class="try3__img">
+                                    <img src="images/sample2222 (1).jpg" alt="">
+                                </div>
+                                <div class="try3__texts">
+                                    <div class="try3__text-inner">
+                                        <div class="try3__description">
+                                            <p>購入時のデフォルトSSDをクローン済みのSSDに換装します。
+                                                ねじをはずしてデフォルトSSDを外します。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try3__inner">
+                                <div class="try3__img">
+                                    <img src="images/sa5.jpg" alt="">
+                                </div>
+                                <div class="try3__texts">
+                                    <div class="try3__text-inner">
+                                        <div class="try3__description">
+                                            <p>購入時のデフォルトSSDをクローン済みのSSDに換装しました。
+                                                以上で、SSD換装は完了です。
+                                                ちなみに、デフォルトSSDはM-Keyで、クローン済みSSDはM+B Keyで異なっておりますが、接続の種類などがあっていれば問題ありません。
+                                                <br><br>これで、メモリ装着とSSD換装が完了しました。あとは、PCをもとにもどして起動します。
+                                                通常どおりに画面が表示されれば、成功です。
+                                                BIOS画面などが出た場合は、メモリとSSDの種類が異なっている可能性があります。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try3__inner">
+                                <div class="try3__img">
+                                    <img src="images/sample22.png" alt="">
+                                </div>
+                                <div class="try3__texts">
+                                    <div class="try3__text-inner">
+                                        <div class="try3__description">
+                                            <p>
+                                                起動できたら、ディスク管理を確認してください。
+                                                現在のディスク管理を開くと、「357.7GB未割り当て」となっています。
+                                                次の章で「357.7GB未割り当て」を「Windows(C:)」に割り当てていきたいと思います。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="try4" id="try4">
+                            <div class="try4__inner">
+                                <div class="try4__category">
+                                    <div class="try4__headline">やってみる（パーティション結合）
+                                    </div>
+                                </div>
+                                <div class="try4__img">
+                                    <img src="images/sample35.png" alt="">
+                                </div>
+                                <div class="try4__texts">
+                                    <div class="try4__text-inner">
+                                        <div class="try4__description">
+                                            <p>MiniTool Partition Wizardは、「MiniTool Partition Wizard の公式サイト」からダウンロードしてください。無料枠で利用することができます。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try4__inner">
+                                <div class="try4__img">
+                                    <img src="images/sample26.png" alt="">
+                                </div>
+                                <div class="try4__texts">
+                                    <div class="try4__text-inner">
+                                        <div class="try4__description">
+                                            <p>MiniTool Partition Wizardを起動すると、上記のような画面になります。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try4__inner">
+                                <div class="try4__img">
+                                    <img src="images/sample27.png" alt="">
+                                </div>
+                                <div class="try4__texts">
+                                    <div class="try4__text-inner">
+                                        <div class="try4__description">
+                                            <p>「C:windows」を選択し、右クリックします。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try4__inner">
+                                <div class="try4__img">
+                                    <img src="images/sample30.png" alt="">
+                                </div>
+                                <div class="try4__texts">
+                                    <div class="try4__text-inner">
+                                        <div class="try4__description">
+                                            <p>「どのくらいの空き容量を利用しますか？」の項目を最大サイズ：357.7GBに設定します。「OK」をクリックします。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try4__inner">
+                                <div class="try4__img">
+                                    <img src="images/sample31.png" alt="">
+                                </div>
+                                <div class="try4__texts">
+                                    <div class="try4__text-inner">
+                                        <div class="try4__description">
+                                            <p>先ほど割り当てたディスク容量が「C:windows」に割り当てられています。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try4__inner">
+                                <div class="try4__img">
+                                    <img src="images/sample32.png" alt="">
+                                </div>
+                                <div class="try4__texts">
+                                    <div class="try4__text-inner">
+                                        <div class="try4__description">
+                                            <p>最後に、パーティションの変更内容を適応します。これをしないとパーティション結合した内容が反映されないので、注意してください。「はい」をクリックします。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try4__inner">
+                                <div class="try4__img">
+                                    <img src="images/sample33.png" alt="">
+                                </div>
+                                <div class="try4__texts">
+                                    <div class="try4__text-inner">
+                                        <div class="try4__description">
+                                            <p>パーティションの変更内容が適応されると、上記のような画面になります。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="try4__inner">
+                                <div class="try4__img">
+                                    <img src="images/sample34.png" alt="">
+                                </div>
+                                <div class="try4__texts">
+                                    <div class="try4__text-inner">
+                                        <div class="try4__description">
+                                            <p>ディスク管理を開いてパーティションの変更内容が適応されるか確認します。上記のように正常に「C:Windows」にパーティションが割り当てられています。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="review" id="review">
+                            <div class="review__inner">
+                                <div class="review__category">
+                                    <div class="review__headline">レビュー</div>
+                                </div>
+                                <div class="review__texts">
+                                    <div class="review__text-inner">
+                                        <div class="review__title"></div>
+                                        <div class="review__sub"></div>
+                                        <div class="review__description">
+                                            私は、ThinkpadのSSDタイプと異なるSSDケースを間違って購入してしまったので、
+                                            みなさんも気をつけてください。以上がThink Pad E495のメモリ装着とSSD換装についてでした。
+                                            ありがとうございます。
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                </div>
+            </div>
+            <footer class="footer">
+                <nav class="footer__nav">
+                    <ul class="footer__ul">
+                        <li class="footer__li"><a href="#abstract">概要</a></li>
+                        <li class="footer__li"><a href="#prepare">用意するもの</a></li>
+                        <li class="footer__li"><a href="#try1">やってみる</a></li>
+                        <li class="footer__li"><a href="#review">振り返りレビュー</a></li>
+                    </ul>
+                    <div class="footer__copyright">
+                        &copy; Yoshiaki Ito
+                    </div>
+                </nav>
+            </footer>
+        </div>
+        <nav class="mobile-menu">
+            <ul class="mobile-menu__main">
+                <li class="mobile-menu__item">
+                    <a class="mobile-menu__link" href="#">
+                        <span class="main-title">Abstract</span>
+                        <span class="sub-title">概要</span>
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a class="mobile-menu__link" href="#">
+                        <span class="main-title">Prepare</span>
+                        <span class="sub-title">用意するもの</span>
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a class="mobile-menu__link" href="#">
+                        <span class="main-title">Just Do It</span>
+                        <span class="sub-title">やってみる</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <script src="scripts/libs/mobile-menu.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

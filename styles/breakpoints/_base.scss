@@ -1,0 +1,356 @@
+/******************************************************************
+
+Stylesheet: ベーススタイル
+
+******************************************************************/
+body {
+  font-family: "Kameron", "Noto Sans JP", sans-serif;
+}
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+.font-sm {
+  font-size: 14px;
+}
+.font-md {
+  font-size: 17px;
+}
+.font-lr {
+  font-size: 17px;
+}
+.font-lg {
+  font-size: 25px;
+}
+
+.mr-sm {
+  margin-right: 26px;
+}
+
+.mb-sm {
+  margin-bottom: 16px !important;
+}
+
+.mb-md {
+  margin-bottom: 44px !important;
+}
+
+.mb-lg {
+  margin-bottom: 80px !important;
+}
+.pb-sm {
+  padding-bottom: 16px !important;
+}
+.pb-lg {
+  padding-bottom: 80px !important;
+}
+.content-width {
+  width: 85%;
+  margin: 0 auto;
+  max-width: $contentMaxWidth;
+}
+
+.main-title {
+  @extend .font-lg;
+  font-weight: 400;
+  margin-bottom: 0;
+  display: block;
+}
+
+.sub-title {
+  @extend .font-sm;
+  color: $cSubTitle;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+#container {
+  background-color: $cWhite;
+  position: relative;
+  z-index: 10;
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.header {
+  @extend .content-width;
+  background-color: $cWhite;
+  height: 100px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+}
+
+.info {
+  @extend .content-width;
+  @extend .mb-sm;
+
+  &__inner {
+    padding: 15px;
+    background-color: $cBgGray;
+  }
+
+  &__header {
+    @extend .flex;
+    @extend .mb-sm;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  &__author {
+    & > img {
+      margin-right: 10px;
+      vertical-align: text-bottom;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    & > a {
+      @extend .font-md;
+      color: $cBlack;
+    }
+  }
+
+  &__time {
+    @extend .font-sm;
+    color: gray;
+    text-align: right;
+    padding-right: 5px;
+  }
+
+  &__title {
+    @extend .mb-sm;
+  }
+
+  &__tag {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > a {
+      color: $cBlack;
+      background-color: rgb(173, 173, 173);
+      padding: 4px 8px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      margin-right: 8px;
+    }
+  }
+
+  &__description {
+    @extend .mb-sm;
+     @extend .font-md;
+  }
+
+}
+
+.mokuji {
+  @extend .content-width;
+  @extend .mb-md;
+
+  &__inner {
+    padding: 15px;
+    background-color: $cBgGray;
+  }
+
+  &__category {
+    @extend .mb-sm;
+    @extend .font-md;
+    border-bottom: solid 3px teal;
+    padding: 5px;
+  }
+
+  &__li,&__li__sub{
+    list-style: none;
+    & > a {
+      color: $cBlack;
+      //text-decoration: none !important;
+    }
+  }
+
+  &__ol,&__ol__sub {
+    list-style: none;
+    counter-reset: section;
+    list-style: decimal;
+  }
+
+  &__li:before, &__li__sub:before {
+    content: counters(section, "-") '. ';
+    counter-increment: section;
+  }
+}
+
+.abstract {
+  @extend .content-width;
+  @extend .mb-md;
+
+  &__inner {
+    padding: 15px;
+    background-color: $cBgGray;
+  }
+
+  &__category {
+    @extend .mb-sm;
+    @extend .font-md;
+    border-bottom: solid 3px teal;
+    padding: 5px;
+  }
+}
+
+.prepare {
+  @extend .content-width;
+  @extend .mb-md;
+
+  &__inner {
+    @extend .flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: $cBgGray;
+  }
+
+  &__category {
+    @extend .mb-sm;
+    padding: 10px;
+    width: 100%;
+    border-bottom: solid 3px teal;
+    @extend .font-md;
+  }
+
+  &__texts {
+    margin: auto 0;
+  }
+
+  &__title {
+    @extend .font-md;
+  }
+
+  &__sub {
+    @extend .font-sm;
+    @extend .mb-sm;
+    color: $cSubTitle;
+  }
+
+  &__img {
+    @extend .mb-sm;
+
+    & > img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      box-shadow: 0 0 5px $cBlack;
+    }
+  }
+
+  &__description {
+    @extend .mb-sm;
+     @extend .font-md;
+  }
+}
+
+.try1, .try2, .try3, .try4 {
+  @extend .content-width;
+  @extend .mb-md;
+
+  &__inner {
+    @extend .flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: $cBgGray;
+  }
+
+  &__category {
+    @extend .mb-sm;
+    @extend .font-md;
+    width: 100%;
+    border-bottom: solid 3px teal;
+    padding: 5px;
+  }
+
+  &__title {
+    @extend .font-md;
+  }
+
+  &__sub {
+    @extend .font-sm;
+    @extend .mb-sm;
+    color: $cSubTitle;
+  }
+
+  &__img {
+    @extend .mb-sm;
+
+    & > img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      box-shadow: 0 0 5px $cBlack;
+    }
+  }
+
+  &__texts {
+      margin: auto 0;
+  }
+
+  &__description {
+    @extend .mb-sm;
+     @extend .font-md;
+  }
+}
+
+.review {
+  @extend .content-width;
+
+  &__inner {
+    padding: 15px;
+    background-color: $cBgGray;
+  }
+
+  &__category {
+    @extend .mb-sm;
+    @extend .font-md;
+    border-bottom: solid 3px teal;
+    padding: 5px;
+  }
+}
+
+.footer {
+  padding: 60px 0;
+  @extend .content-width;
+
+  &__nav {
+    @extend .flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__ul {
+    @extend .flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__li {
+    padding: 0;
+    margin: 10px;
+
+    & > a {
+      color: $cSubTitle;
+    }
+  }
+
+  &__copyright {
+    padding-top: 20px;
+  }
+}
+
+
+
+
+
+
+
