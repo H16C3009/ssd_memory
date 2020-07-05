@@ -194,7 +194,7 @@ img {
 }
 
 .content-width, .header, .info, .mokuji, .abstract, .prepare, .try1, .try2, .try3, .try4, .review, .footer {
-  width: 85%;
+  width: 90%;
   margin: 0 auto;
   max-width: 1070px;
 }
